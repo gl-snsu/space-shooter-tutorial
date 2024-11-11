@@ -35,7 +35,9 @@ func _on_meteor_titmer_timeout() -> void:
 	
 	# connect the signal
 	meteor.connect('collision', _on_meteor_collision)
+	meteor.connect('laser_collision', _on_meteor_laser_collision)
 
+# meteor and player collide
 func _on_meteor_collision() -> void:
 	health -= 1
 	$MeteorPlayerCollisionSound.play()
@@ -55,6 +57,10 @@ func _on_meteor_collision() -> void:
 		
 		# Change to the game over scene after the delay
 		get_tree().change_scene_to_file('res://scenes/game_over_control.tscn')
+		
+# meteor and laser collide
+func _on_meteor_laser_collision() -> void:
+	$MeteorLaserCollisionSound.play()
 
 func _on_player_laser(player_pos: Vector2) -> void:
 	var laser = laser_scene.instantiate()
