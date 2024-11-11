@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx4l42kvqwahc"]
+
+[ext_resource type="FontFile" uid="uid://c4j74jtuxw8yv" path="res://graphics/Fonts/subatomic.tsoonami.ttf" id="1_u0adp"]
+[ext_resource type="Texture2D" uid="uid://c4ihcmklcgq34" path="res://graphics/UI/playerLife2_orange.png" id="2_r1dpw"]
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="ScoreContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_right = 68.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_u0adp")
+theme_override_font_sizes/font_size = 50
+text = "1234"
+horizontal_alignment = 1
+
+[node name="LifeContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 201.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LifeContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="LifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_r1dpw")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="LifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_r1dpw")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="LifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_r1dpw")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="LifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_r1dpw")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="LifeContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_r1dpw")
+stretch_mode = 2
