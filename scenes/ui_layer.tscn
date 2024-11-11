@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx4l42kvqwahc"]
+[gd_scene load_steps=4 format=3 uid="uid://bx4l42kvqwahc"]
 
+[ext_resource type="Script" path="res://scenes/ui_layer.gd" id="1_nodt6"]
 [ext_resource type="FontFile" uid="uid://c4j74jtuxw8yv" path="res://graphics/Fonts/subatomic.tsoonami.ttf" id="1_u0adp"]
 [ext_resource type="Texture2D" uid="uid://c4ihcmklcgq34" path="res://graphics/UI/playerLife2_orange.png" id="2_r1dpw"]
 
-[node name="UILayer" type="CanvasLayer"]
+[node name="UILayer" type="CanvasLayer" groups=["ui_layer"]]
+script = ExtResource("1_nodt6")
 
 [node name="ScoreContainer" type="MarginContainer" parent="."]
 anchors_preset = 5
@@ -20,7 +22,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_u0adp")
 theme_override_font_sizes/font_size = 50
-text = "1234"
+text = "0"
 horizontal_alignment = 1
 
 [node name="LifeContainer" type="MarginContainer" parent="."]
@@ -60,3 +62,8 @@ stretch_mode = 2
 layout_mode = 2
 texture = ExtResource("2_r1dpw")
 stretch_mode = 2
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
