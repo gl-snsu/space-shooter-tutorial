@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv5l3lvss3pto"]
+[gd_scene load_steps=12 format=3 uid="uid://dv5l3lvss3pto"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_50jtt"]
 [ext_resource type="PackedScene" uid="uid://cuwcpvikbl61k" path="res://scenes/player.tscn" id="1_k6xyq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bat8ln8tissf5" path="res://graphics/Stars/star2.png" id="4_wgw0j"]
 [ext_resource type="Texture2D" uid="uid://cqf1ev37g3oci" path="res://graphics/Stars/star3.png" id="5_whmru"]
 [ext_resource type="PackedScene" uid="uid://bx4l42kvqwahc" path="res://scenes/ui_layer.tscn" id="7_xhwbc"]
+[ext_resource type="AudioStream" uid="uid://b8x5d2gpnl3dc" path="res://audio/explosion3.wav" id="8_w8l6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bbdq1"]
 animations = [{
@@ -188,6 +189,9 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="UILayer" parent="." instance=ExtResource("7_xhwbc")]
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_w8l6f")
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTitmer" to="." method="_on_meteor_titmer_timeout"]

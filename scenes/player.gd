@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 		laser.emit($LaserStartPos.global_position)
 		can_shoot = false
 		$LaserTimer.start()
+		$LaserSound.play()
 
 func _on_laser_timer_timeout() -> void:
 	can_shoot = true

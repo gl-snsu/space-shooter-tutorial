@@ -38,6 +38,7 @@ func _on_meteor_titmer_timeout() -> void:
 
 func _on_meteor_collision() -> void:
 	health -= 1
+	$CollisionSound.play()
 	get_tree().call_group('ui_layer', 'set_health', health)
 	if (health <= 0):
 		get_tree().change_scene_to_file('res://scenes/game_over_control.tscn')
