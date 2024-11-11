@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv5l3lvss3pto"]
+
+[ext_resource type="PackedScene" uid="uid://cuwcpvikbl61k" path="res://scenes/player.tscn" id="1_k6xyq"]
+[ext_resource type="Texture2D" uid="uid://byr6egtu55skp" path="res://graphics/Background/bcg1.png" id="1_nf0wm"]
+[ext_resource type="PackedScene" uid="uid://dnab84lytw5ui" path="res://scenes/meteor.tscn" id="3_3f1an"]
+
+[node name="Level" type="Node2D"]
+
+[node name="GameBackground" type="Sprite2D" parent="."]
+position = Vector2(640.5, 360.5)
+scale = Vector2(0.667188, 0.667593)
+texture = ExtResource("1_nf0wm")
+
+[node name="Player" parent="." instance=ExtResource("1_k6xyq")]
+position = Vector2(440, 421)
+
+[node name="Meteor" parent="." instance=ExtResource("3_3f1an")]
+position = Vector2(376, 167)
