@@ -14,7 +14,6 @@ func set_health(health: int) -> void:
 		$LifeContainer/HBoxContainer.add_child(text_rect)
 		text_rect.stretch_mode = TextureRect.STRETCH_KEEP
 
-
 func _on_score_timer_timeout() -> void:
 	time_elapse += 1
 	$ScoreContainer/Label.text = str(time_elapse)

@@ -34,10 +34,11 @@ func _process(delta: float) -> void:
 	position += Vector2(direction_x, 1.0) * speed * delta
 	rotation_degrees += rotation_speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	collision.emit()
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	area.queue_free()
 	queue_free()
+	print('laser hits meteor')

@@ -38,7 +38,7 @@ func _on_meteor_titmer_timeout() -> void:
 
 func _on_meteor_collision() -> void:
 	health -= 1
-	$CollisionSound.play()
+	$MeteorPlayerCollisionSound.play()
 	get_tree().call_group('ui_layer', 'set_health', health)
 	
 	if health <= 0:
@@ -46,6 +46,7 @@ func _on_meteor_collision() -> void:
 		var timer = Timer.new()
 		timer.wait_time = 0.2  # Adjust this time for the delay duration in seconds
 		timer.one_shot = true
+		
 		add_child(timer)
 		timer.start()
 		
@@ -53,7 +54,7 @@ func _on_meteor_collision() -> void:
 		await timer.timeout
 		
 		# Change to the game over scene after the delay
-		await get_tree().change_scene_to_file('res://scenes/game_over_control.tscn')
+		get_tree().change_scene_to_file('res://scenes/game_over_control.tscn')
 
 func _on_player_laser(player_pos: Vector2) -> void:
 	var laser = laser_scene.instantiate()
