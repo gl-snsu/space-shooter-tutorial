@@ -33,4 +33,4 @@ func _process(delta: float) -> void:
 	rotation_degrees += rotation_speed * delta
 
 func _on_body_entered(_body: Node2D) -> void:
-	print('Body entered')
+	print('Body entered v2')
