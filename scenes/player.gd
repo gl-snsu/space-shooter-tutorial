@@ -26,3 +26,7 @@ func _process(_delta: float) -> void:
 
 func _on_laser_timer_timeout() -> void:
 	can_shoot = true
+
+func play_collision_sound() -> void:
+	$DamageSound.play()
+	

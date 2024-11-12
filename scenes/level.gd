@@ -39,8 +39,8 @@ func _on_meteor_titmer_timeout() -> void:
 
 # meteor and player collide
 func _on_meteor_collision() -> void:
+	$Player.play_collision_sound()
 	health -= 1
-	$MeteorPlayerCollisionSound.play()
 	get_tree().call_group('ui_layer', 'set_health', health)
 	
 	if health <= 0:
