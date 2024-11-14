@@ -81,4 +81,3 @@ func _on_health_power_up_collision() -> void:
 	$Player.play_health_collision_sound()
 	health += 1
 	get_tree().call_group('ui_layer', 'set_health', health)
-	#print('health and player now collide v2')
