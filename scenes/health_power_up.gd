@@ -23,6 +23,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += Vector2(direction_x, 1.0) * speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	health_collision.emit()
 	queue_free()
