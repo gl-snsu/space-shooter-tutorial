@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpc0puhjsmca0"]
+
+[ext_resource type="Texture2D" uid="uid://d116syvcy8vul" path="res://graphics/Power-ups/pill_red.png" id="1_jexbq"]
+[ext_resource type="Script" path="res://scenes/health_power_up.gd" id="1_x8ddf"]
+
+[node name="HealthPowerUp" type="Area2D"]
+script = ExtResource("1_x8ddf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_jexbq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -16, 11, -16, 17, -11, 16, -2, -1, 16, -12, 16, -17, 12, -17, 2)

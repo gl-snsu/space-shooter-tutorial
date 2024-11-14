@@ -179,12 +179,17 @@ collision_layer = 4
 position = Vector2(640, 745)
 shape = SubResource("RectangleShape2D_mu76g")
 
-[node name="MeteorTitmer" type="Timer" parent="."]
+[node name="MeteorTimer" type="Timer" parent="."]
 wait_time = 0.5
+autostart = true
+
+[node name="HealthPowerUpTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="HealthPowerUp" type="Node2D" parent="."]
 
 [node name="Lasers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -200,4 +205,5 @@ volume_db = -12.0
 autoplay = true
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
-[connection signal="timeout" from="MeteorTitmer" to="." method="_on_meteor_titmer_timeout"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
+[connection signal="timeout" from="HealthPowerUpTimer" to="." method="_on_health_power_up_timer_timeout"]

@@ -3,6 +3,7 @@ extends Node2D
 # 1. Load the scene
 var meteor_scene: PackedScene = load("res://scenes/meteor.tscn")
 var laser_scene: PackedScene = load("res://scenes/laser.tscn")
+var health_power_up_scene: PackedScene = load("res://scenes/health_power_up.tscn")
 
 var health: int = 3
 
@@ -26,7 +27,8 @@ func _ready() -> void:
 		# animation speed
 		star.speed_scale = rng.randf_range(0.6, 1.4)
 
-func _on_meteor_titmer_timeout() -> void:
+# Time where the meteor should spawn
+func _on_meteor_timer_timeout() -> void:
 	# 2. Create an instance
 	var meteor = meteor_scene.instantiate()
 	
@@ -36,7 +38,12 @@ func _on_meteor_titmer_timeout() -> void:
 	# connect the signal
 	meteor.connect('collision', _on_meteor_collision)
 	meteor.connect('laser_collision', _on_meteor_laser_collision)
-
+	
+# Time where the health power-up should spawn
+func _on_health_power_up_timer_timeout() -> void:
+	var health_power_up = health_power_up_scene.instantiate()
+	$HealthPowerUp.add_child(health_power_up)
+		
 # meteor and player collide
 func _on_meteor_collision() -> void:
 	$Player.play_collision_sound()
@@ -62,6 +69,7 @@ func _on_meteor_collision() -> void:
 func _on_meteor_laser_collision() -> void:
 	$MeteorLaserCollisionSound.play()
 
+# Position the laser to the center of the player
 func _on_player_laser(player_pos: Vector2) -> void:
 	var laser = laser_scene.instantiate()
 	$Lasers.add_child(laser)
