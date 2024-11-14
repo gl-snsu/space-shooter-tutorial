@@ -3,6 +3,8 @@ extends Area2D
 var speed: int
 var direction_x: float
 
+signal health_collision
+
 func _ready() -> void:
 	var rng: RandomNumberGenerator  = RandomNumberGenerator.new()
 	
@@ -20,3 +22,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += Vector2(direction_x, 1.0) * speed * delta
+
+func _on_body_entered(body: Node2D) -> void:
+	health_collision.emit()
+	queue_free()
+	#print('health and player now collide')

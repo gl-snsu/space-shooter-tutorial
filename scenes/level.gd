@@ -43,6 +43,7 @@ func _on_meteor_timer_timeout() -> void:
 func _on_health_power_up_timer_timeout() -> void:
 	var health_power_up = health_power_up_scene.instantiate()
 	$HealthPowerUp.add_child(health_power_up)
+	health_power_up.connect('health_collision', _on_health_power_up_collision)
 		
 # meteor and player collide
 func _on_meteor_collision() -> void:
@@ -74,3 +75,10 @@ func _on_player_laser(player_pos: Vector2) -> void:
 	var laser = laser_scene.instantiate()
 	$Lasers.add_child(laser)
 	laser.position = player_pos
+	
+# player and health power up collide
+func _on_health_power_up_collision() -> void:
+	$Player.play_health_collision_sound()
+	health += 1
+	get_tree().call_group('ui_layer', 'set_health', health)
+	#print('health and player now collide v2')

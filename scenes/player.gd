@@ -30,3 +30,5 @@ func _on_laser_timer_timeout() -> void:
 func play_collision_sound() -> void:
 	$DamageSound.play()
 	
+func play_health_collision_sound() ->void:
+	$HealthCollideSound.play()
